@@ -1,25 +1,19 @@
 import './App.css';
+import NavBar from "./NavBar"
+import "./NavBarStyles.css"
 
 function App() {
   return (
-    <div className="flex-container-2">
-      {/* Left section (Dashboard) */}
+    
+    <div className="flex-container">
+      {/* NavBar across top of website */}
       <div>
-        <h2>TeaTime</h2>
-        <h3>Dashboard</h3>
-        <div className="flex-container">
-          <div>Home</div>
-          <div>Discover</div>
-          <div>Profile</div>
-        </div>
+        <NavBar />
       </div>
 
-      {/* Vertical dividing line */}
-      <div className="vertical-line"></div>
-
-      {/* Right section */}
-      <div className="flex-container">
-        {/* About Us */}
+      {/* below the NavBar */}
+      <div>
+        {/* Top half with the About Us and image carousel */}
         <div className="flex-container-2">
           <div>
             <h2>About Us</h2>

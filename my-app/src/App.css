@@ -118,11 +118,12 @@ p {
 /* background for 'why us' blurb */
 .rectangle-background {
   width: 450px;
-  height: 150px;
+  height: 200px;
   background-color: #FDF5D5;
   border-radius: 30px;
   padding: 10px;
   display: flex;
+  align-items: center;
 }
 
 /* rectangle for footer*/

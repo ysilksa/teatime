@@ -1,0 +1,61 @@
+/* the asterisk '*' describes all elements on the page (universal selector) */
+/* box-sizing default is content-box, which calculates width and height w/out padding/border  */
+/* 'border-box' means that an element's width and height includes padding/border */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0; 
+}
+
+.site-title {
+    font-size: 2rem;
+}
+
+.nav {
+    background-color: #FFFDF0;
+    color: #2A2B2A;
+    display: flex;
+    justify-content: space-between; /* pushes elements to left and right sides of the page */
+    align-items: stretch; /* so the ul elements span the full height */
+    gap: 2rem; /* puts space between elements if they are too close */
+    padding: 0 1rem; /* space on edges so they aren't touching the edges */
+}
+
+.nav ul {
+    /* get rid of padding and margin */
+    padding: 0; 
+    margin: 0; 
+
+    /* get rid of spacing and bullet points */
+    list-style: none; 
+
+    /* puts space between diff elements */
+    display: flex;
+    gap: 1rem; 
+}
+
+/* select anchor tags */
+.nav a {
+    color: inherit;
+
+    /* get rid of weird underlines */
+    text-decoration: none;
+
+    /*change to full height*/
+    height: 100%;
+
+    display: flex;
+    align-items: center; 
+    padding: .25rem;
+}
+
+/* put active over hover so that the link color changes even when you're on the active link*/
+/* change these colors later */
+.nav li.active {
+    background-color: #555 
+   }
+.nav li:hover {
+    background-color: #fa7878 
+   }
