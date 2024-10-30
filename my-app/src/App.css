@@ -36,3 +36,119 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* below: all css style from hw 3*/
+
+/* general background color and font-family */
+body {
+  background-color:#FFFDF0;
+  font-family: Arial, sans-serif;
+}
+
+/* paragraph text size */
+p {
+  font-size: 20px;
+}
+
+/* all flex conatiners' display and background-color */
+.flex-container, .flex-container-2, .flex-container-vertical-center, .flex-container-horizontal-wide-gap {
+  display: flex;
+  background-color:#FFFDF0;
+}
+
+/* vertical flex container */
+.flex-container {
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* vertical flex container that is centered */
+.flex-container-vertical-center {
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+/* horizontal flex container */
+.flex-container-2 {
+  gap: 60px;
+}
+
+/* horizontal flex container with wider gap for the bottom part */
+.flex-container-horizontal-wide-gap {
+  gap: 330px;
+}
+
+/* top half's carousel layout */
+.image-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  margin: 30px;
+}
+
+/* standardize all images in the top half's carousel */
+.image {
+  width: 130px;
+  height: auto;
+  box-shadow: 10px 20px 30px #E6D6B2;
+  border-radius: 10px;
+}
+
+/* line that divides the dashboard and the rest of the content */
+.vertical-line {
+  width: 5px;
+  height: 650px;
+  background-color: #FDF5D5;
+}
+
+/* horizontal line that divides upper and lower halves */
+.custom-line {
+  border: 0;
+  height: 2px;
+  background-color: #FDF5D5;
+  margin: 20px 0;
+}
+
+/* background for 'why us' blurb */
+.rectangle-background {
+  width: 450px;
+  height: 150px;
+  background-color: #FDF5D5;
+  border-radius: 30px;
+  padding: 10px;
+  display: flex;
+}
+
+/* rectangle for footer*/
+.footer {
+  width: 100%;
+  height: 30px;
+  background-color: #FDF5D5;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 10px;
+}
+.footer p {
+  font-size: 15px;
+  margin: 0;
+}
+
+/* social media button */
+.social-media-button {
+  background-color: #2A2B2A;
+  border: none;
+  color: #FFFFFF;
+  padding: 15px 32px;
+  font-family: "Figtree";
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
