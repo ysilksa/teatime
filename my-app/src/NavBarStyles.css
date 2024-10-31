@@ -5,8 +5,13 @@
     box-sizing: border-box;
 }
 
-body {
+.body {
     margin: 0; 
+}
+
+.container {
+    margin: 1rem; 
+    text-align: center; 
 }
 
 .site-title {
@@ -54,8 +59,8 @@ body {
 /* put active over hover so that the link color changes even when you're on the active link*/
 /* change these colors later */
 .nav li.active {
-    background-color: #555 
+    background-color: #FFFDF0;
    }
 .nav li:hover {
-    background-color: #fa7878 
+    background-color: #FDF5D5;
    }
