@@ -3,8 +3,7 @@ import '../App.css';
 
 export default function AboutUs() {
   return (
-    // <div className = "about-us-container-padding">
-    <div>
+    <div className = "about-us-container-padding">
       {/* Top half with the About Us and image carousel */}
       <div className ="flex-container-2">
         <div>

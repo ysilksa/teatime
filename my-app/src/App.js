@@ -4,28 +4,21 @@ import "./NavBarStyles.css"
 import Profile from './pages/Profile';
 import Discover from './pages/Discover';
 import AboutUs from './pages/AboutUs';
+import Home from './pages/Home';
+import { Route, Routes } from "react-router-dom";
 
 function App() {
-  let component
-  switch (window.location.pathname) {
-    case "/":
-      component = <App />
-      break 
-    case "/profile":
-      component = <Profile />
-      break
-    case "/discover":
-      component = <Discover />
-      break 
-    case "/aboutus":
-      component = <AboutUs />
-      break
-  }
-
   return (
     <>
     <NavBar />
-    {component}
+    <div className = "container"> 
+      <Routes>
+        <Route path = "/" element = {<Home />} />
+        <Route path = "/discover" element = {<Discover />} />
+        <Route path = "/profile" element = {<Profile />} />
+        <Route path = "/aboutus" element = {<AboutUs />} />
+      </Routes>
+    </div>
     </>
   )
 }
