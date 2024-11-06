@@ -40,11 +40,7 @@
 
 /* below: all css style from hw 3*/
 
-/* general background color and font-family */
-body {
-  background-color:#FFFDF0;
-  font-family: Arial, sans-serif;
-}
+
 
 /* paragraph text size */
 p {
@@ -54,7 +50,9 @@ p {
 /* all flex conatiners' display and background-color */
 .flex-container, .flex-container-2, .flex-container-vertical-center, .flex-container-horizontal-wide-gap {
   display: flex;
-  background-color:#FFFDF0;
+  width: 100vw;
+  height: 100%;
+  /* background-color:#FFFDF0; */
 }
 
 /* vertical flex container */
@@ -67,6 +65,7 @@ p {
 .flex-container-vertical-center {
   flex-direction: column;
   align-items: center;
+  width: 100vw;
   height: 100vh;
 }
 
@@ -77,58 +76,14 @@ p {
 
 /* horizontal flex container with wider gap for the bottom part */
 .flex-container-horizontal-wide-gap {
-  gap: 330px;
-}
-
-/* top half's carousel layout */
-.image-container {
   display: flex;
-  align-items: flex-start;
-  gap: 5px;
-  margin: 30px;
+  gap: 0px;
 }
 
-/* standardize all images in the top half's carousel */
-.image {
-  width: 130px;
-  height: auto;
-  box-shadow: 10px 20px 30px #E6D6B2;
-  border-radius: 10px;
-}
-/* moves 2nd image down in image carousel */
-.lower {
-  margin-top: 20px; 
-}
-
-/* line that divides the dashboard and the rest of the content */
-.vertical-line {
-  width: 5px;
-  height: 650px;
-  background-color: #FDF5D5;
-}
-
-/* horizontal line that divides upper and lower halves */
-.custom-line {
-  border: 0;
-  height: 2px;
-  background-color: #FDF5D5;
-  margin: 20px 0;
-}
-
-/* background for 'why us' blurb */
-.rectangle-background {
-  width: 450px;
-  height: 200px;
-  background-color: #FDF5D5;
-  border-radius: 30px;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-}
 
 /* rectangle for footer*/
 .footer {
-  width: 100%;
+  width: 100vw;
   height: 30px;
   background-color: #FDF5D5;
   display: flex;
@@ -143,9 +98,9 @@ p {
 
 /* social media button */
 .social-media-button {
-  background-color: #2A2B2A;
+  /* background-color: #2A2B2A; */
   border: none;
-  color: #FFFFFF;
+  /* color: #FFFFFF; */
   padding: 15px 32px;
   font-family: "Figtree";
   text-align: center;
@@ -157,32 +112,35 @@ p {
   border-radius: 5px;
 }
 
-/*some extra padding */
-/* .about-us-container-padding {
-  padding-left: 20px;
-  padding-right: 20px;
-} */
 
+/* dark mode button styling */
+.dark-mode-button {
+  position: relative; 
+  top: -65px; 
+  left: -750px; 
+  width: 80px; 
+  height: 40px; 
+  border: none; 
+  font-family: "Figtree";
+  cursor: pointer; 
+  border-radius: 5px;
+}
 
 /*font family FigTree for the website*/
 @import url(https://fonts.googleapis.com/css?family=Figtree);
 h2 {
   font-family: "Figtree";
-  color: #2A2B2A;
 }
 h3 {
   font-family: "Figtree";
-  color: #2A2B2A;
 }
 div {
   font-family: "Figtree";
-  color: #2A2B2A;
 }
 body {
   font-family: "Figtree";
-  color: #2A2B2A;
 }
 p {
   font-family: "Figtree";
-  color: #2A2B2A;
 }
+

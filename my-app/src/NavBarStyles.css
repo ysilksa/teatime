@@ -10,7 +10,6 @@
 }
 
 .container {
-    margin: 1rem; 
     text-align: center; 
 }
 
@@ -19,7 +18,11 @@
 }
 
 .nav {
-    background-color: #FFFDF0;
+    position: fixed; 
+    top: 0; 
+    width: 100vw; 
+    height: 70px; 
+    background-color: #FDF5D5;
     color: #2A2B2A;
     display: flex;
     justify-content: space-between; /* pushes elements to left and right sides of the page */
@@ -57,9 +60,9 @@
 }
 
 /* put active over hover so that the link color changes even when you're on the active link*/
-.nav li.active {
+/* .nav li.active {
     background-color: #FFFDF0;
-   }
-.nav li:hover {
+   } */
+/* .nav li:hover {
     background-color: #FDF5D5;
-   }
+   } */

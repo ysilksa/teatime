@@ -1,0 +1,8 @@
+.discover-container-padding {
+    padding-left: 20px; 
+    padding-right: 20px;
+    padding-top: 70px;
+    width: 100vw;
+    height: calc(100% - 60px);
+    overflow-x: hidden;
+}

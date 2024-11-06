@@ -1,14 +1,49 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import '../App.css';
+import './AboutUs.css'
 
 export default function AboutUs() {
+  // to create light and dark mode 
+  const [mode, setMode] = useState('light');
+
+  const switchMode = () => {
+    if (mode === 'light') {
+      setMode('dark');
+    } else if (mode === 'dark') {
+      setMode('light');
+    }
+  }
+
+  useEffect(() => {
+    console.log(mode);
+  }, [mode]);
+
+  const backgroundColor = mode === 'light' ? '#FFFDF0' : '#2A2B2A';
+  // textColor and buttonColor share the same colors 
+  const textColor = mode === 'light' ? '#2A2B2A' : '#FFFDF0' ;
+  const accentColor = mode === 'light' ? '#FDF5D5' : '#5A5A5A' ;
+
+
   return (
-    <div className = "about-us-container-padding">
+    <div className = "about-us-container-padding"
+      style={{ backgroundColor: backgroundColor, 
+               color: textColor}}>
+
+      <button className = "dark-mode-button"
+              style={{ backgroundColor: textColor, 
+                       color: backgroundColor}}
+              onClick={switchMode}>
+              Dark Mode
+      </button> 
+
       {/* Top half with the About Us and image carousel */}
       <div className ="flex-container-2">
-        <div>
-          <h2>About Us</h2>
-          <p>We aim to connect the world through a common shared drink - milk tea!</p>
+        <div  className = "about-us-description-container"> 
+          <h2> About Us </h2>
+          <p className = "about-us-description-text-container">
+            We aim to connect the world through a common shared drink - milk tea!
+          </p>
         </div>
 
         {/* Image carousel */}
@@ -26,7 +61,9 @@ export default function AboutUs() {
       <div className="flex-container-horizontal-wide-gap">
         <div className="flex-container-vertical-center">
           <h3>Why Us?</h3>
-          <div className="rectangle-background">
+          <div className="rectangle-background"
+               style={{ backgroundColor: accentColor, 
+                        color: textColor}}>
             <p>
               Finding opportunities to meet new people can be hard, but finding a common topic of interest with someone else is harder. We strive to foster a community over a popular loved drink, no matter whether you’re a new freshman or a rising senior.
             </p>
@@ -36,8 +73,14 @@ export default function AboutUs() {
         {/* Contact Us */}
         <div className="flex-container-vertical-center">
           <h3>Contact Us!</h3>
-          <button className="social-media-button">Email</button>
-          <button className="social-media-button">Instagram</button>
+          <button className="social-media-button"
+                  style={{ backgroundColor: textColor, 
+                    color: backgroundColor}}>
+                  Email</button>
+          <button className="social-media-button"
+                  style={{ backgroundColor: textColor, 
+                          color: backgroundColor}}>
+                  Instagram</button>
         </div>
       </div>
 

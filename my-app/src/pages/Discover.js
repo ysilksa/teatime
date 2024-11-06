@@ -1,7 +1,12 @@
+import '../App.css';
+import './Discover.css'
+
 export default function Discover() {
     return (
-    <h1>
-        Discover
-    </h1>
+    <div className = "discover-container-padding">
+        <h1>
+            Discover
+        </h1>
+    </div>
     )
 }
