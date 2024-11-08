@@ -1,25 +1,47 @@
-import logo from './logo.svg';
+// import { useState, useEffect } from 'react';
 import './App.css';
+import NavBar from "./NavBar"
+import Profile from './pages/Profile';
+import Discover from './pages/Discover';
+import AboutUs from './pages/AboutUs';
+import Home from './pages/Home';
+import "./NavBarStyles.css"
+import { Route, Routes } from "react-router-dom";
 
 function App() {
+  // to create light and dark mode 
+  // const [mode, setMode] = useState('light');
+
+  // const switchMode = () => {
+  //   if (mode === 'light') {
+  //     setMode('dark');
+  //   } else if (mode === 'dark') {
+  //     setMode('light');
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   console.log(mode);
+  // }, [mode]);
+
+  // const backgroundColor = mode === 'light' ? '#FFFDF0' : '#2A2B2A';
+  // const textColor = mode === 'light' ? '#2A2B2A' : '#FFFDF0' ;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <NavBar />
+    <div className = "container">
+      {/* style={{ backgroundColor: backgroundColor, color: textColor }}> */}
+      {/* <button onClick={switchMode}>Dark mode</button>  */}
+      <Routes>
+        <Route path = "/" element = {<Home />} />
+        <Route path = "/discover" element = {<Discover />} />
+        <Route path = "/profile" element = {<Profile />} />
+        <Route path = "/aboutus" element = {<AboutUs />} />
+      </Routes>
     </div>
-  );
+    </>
+  )
 }
 
 export default App;
