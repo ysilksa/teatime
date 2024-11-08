@@ -8,11 +8,9 @@ export default function AboutUs() {
   const [mode, setMode] = useState('light');
 
   const switchMode = () => {
-    if (mode === 'light') {
-      setMode('dark');
-    } else if (mode === 'dark') {
-      setMode('light');
-    }
+    // swapped to a single ternary operator, where if mode is 'light', then 
+    // switch to dark, otherwise, change to light   
+    setMode(mode === 'light' ? 'dark' : 'light');
   }
 
   useEffect(() => {
