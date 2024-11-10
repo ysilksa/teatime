@@ -1,8 +1,27 @@
-// import { PureComponent } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../App.css';
 import './Discover.css'
+import { getAllUsers } from './DiscoverAPI.js'
+
+// importing icon 
+// https://react-icons.github.io/react-icons/
+import { FaRegCommentAlt, FaRegHeart } from "react-icons/fa";
 
 export default function Discover() {
+    // getAllUsers 
+    // useState that stores users' data 
+    const [users, setUsers] = useState([]); 
+
+
+    // useEffect that fetches all users' data during rendering 
+    useEffect(() => {
+        getAllUsers()
+            .then(data => setUsers(data))
+            .catch(error => console.error('error fetching users:', error));
+    }, []);
+
+
+    // web page
     return (
     <div className = "discover-container-padding"
         style={{ backgroundColor: '#FFFDF0', 
@@ -28,86 +47,65 @@ export default function Discover() {
                 
                 </div>   
                 
+                {/* import 2 users' names from API to display */}
+                {users.slice(2, 4).map((user, index) => (
+                    <div key={user.id} className="social-media-post-container">
 
-                {/* example post 1 */}
-                <div className = "social-media-post-container">
-                    {/* user's name */}
-                    <div className = "username-container">
-                        {/* profile icon */}
-                        <div className = "circular-icon-image"></div>
-                        
                         {/* username and timestamp */}
-                        <h3>
-                            User 1 
-                            <br />
-                            20 min ago 
-                        </h3>
-                       
-                    </div>
-                    
+                        <div className="username-container">
+                            {/* profile picture */}
+                            <img src={user.profilePicture} alt={`${user.firstName}'s profile`} className = "circular-icon-image" />
 
-                    {/* post's description */}
+                            {/* username and timestamp */}
+                            <h3>
+                                {`${user.firstName} ${user.lastName}`}  
+                                <br />
+                                {index === 0 ? '20 min ago' : '1 hr ago'}
+                            </h3>
+                        </div>
+                    
+                    {/* example post descriptions */}
                     <div>
                         <p>
-                            Had fun on the weekend!! Went to Ume Tea with bff~ 
+                        {index === 0
+                        ? 'Had fun on the weekend!! Went to Ume Tea with bff~'
+                        : "Go to Gather's if you stop by Chicago! I love their hojicha rose lattes."}
                         </p>
-                    </div>
-
-                    {/* post's images */}
-                    <div className = "image-carousel-container">
-                        <div className = "post-image">
-                        </div>
-
-                        <div className = "post-image">
-                        </div>
-
-                        <div className = "post-image">
-                        </div>
-                    </div>
-
-                    <div>
-                        <HeartIcon></HeartIcon>
-                    </div>
-
-                </div>
-
-                {/* example post 2 */}
-                <div className = "social-media-post-container">
-                    {/* user's name */}
-                    <div className = "username-container">
-                        {/* profile icon */}
-                        <div className = "circular-icon-image"></div>
-                        
-                        {/* username and timestamp */}
-                        <h3>
-                            User 2
-                            <br />
-                            1 hr ago 
-                        </h3>
-                       
                     </div>
                     
+                    {/* image carousel  */}
+                    <div className="image-carousel-container">
+                        {/* image 1 */}
+                        {index === 0 
+                        ? <img src = "https://i.imgur.com/qrM56W6.jpeg" alt="Thai Frose from Ume Tea" className = "post-image"/>
+                        : <img src = "https://i.imgur.com/NWzvnPm.jpeg" alt="Rose hojicha latte with boba from Gathers" className = "post-image"/>
+                        }
 
-                    {/* post's description */}
-                    <div>
-                        <p>
-                            Go to Gather's if you stop by Chicago! I love their hojicha rose lattes. 
-                        </p>
+                        {/* image 2 */}
+                        {index === 0 
+                        ? <img src = "https://i.imgur.com/S8cHWww.jpeg" alt="Thai Frose from Ume Tea" className = "post-image"/>
+                        : <img src = "https://i.imgur.com/QA3obdD.jpeg" alt="Two My Melody and Kuromi blind keychains" className = "post-image"/>
+                        }
+
                     </div>
+            
 
-                    {/* post's images */}
-                    <div className = "image-carousel-container">
-                        <div className = "post-image">
-                        </div>
-
-                        <div className = "post-image">
-                        </div>
-
-                        <div className = "post-image">
-                        </div>
-                    </div>
-
+            {/* heart icon and comment icon */}
+            <div className = 'likes-comment-container'>
+                <div className = 'likes-comment-container-inner'>
+                    <HeartIcon />
+                    {index === 0 ? 124 : 12}
                 </div>
+
+                <div className = 'likes-comment-container-inner'>
+                    <CommentIcon />
+                    {index === 0 ? 137 : 14}
+                </div>
+            </div>
+
+        </div>
+        ))}
+                
 
             </div>
 
@@ -123,20 +121,24 @@ export default function Discover() {
     )
 }
 
+//
+// external functions
+//
 
 // heart icon for the post 
-function HeartIcon() {
+function HeartIcon({size = 20, color = '#2A2B2A'}) {
     return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        width = "20"
-        height = "20"
-        fill = "transparent"
-        stroke = "black"
-        strokeWidth = "2"
-      >
-        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-      </svg>
+    <div>
+        <FaRegHeart size = {size}  color = {color} />
+    </div>
     );
   }
+
+// comment icon for the post 
+function CommentIcon({size = 20, color = '#2A2B2A'}) {
+  return (
+   <div>
+        <FaRegCommentAlt size = {size}  color = {color} />
+   </div>
+  );
+}

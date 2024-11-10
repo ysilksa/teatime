@@ -76,6 +76,7 @@ html, body {
     justify-content: flex-start;
     align-items: left;
     text-align: left;
+    gap: 10px;
 }
 
 /* container for profile pic and user's name */
@@ -90,7 +91,6 @@ html, body {
     border-radius: 50%; 
     width: 50px; 
     height: 50px; 
-    background-color: aqua;
 }
 
 /* carousel container for social media pics  */
@@ -103,9 +103,24 @@ html, body {
 /* image for social media post */
 .post-image {
     width: 150px;
-    height: 200px;
+    height: auto;
     background-color:aqua;
     border-radius: 10px;
+}
+
+/* container for the heart and the comment icons */
+.likes-comment-container {
+    display: flex; 
+    align-items: center;
+    gap: 10px;
+    padding-top: 15px; 
+}
+
+/* individual container for comments and heart so the gap isn't as wide */
+.likes-comment-container-inner {
+    display: flex; 
+    align-items: center;
+    gap: 5px; 
 }
 
 
@@ -121,3 +136,6 @@ h1 {
     font-size: 30px; 
 }
 
+p {
+    padding: 0;
+  }
