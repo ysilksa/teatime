@@ -1,24 +1,29 @@
 // getAllUsers
 export async function getAllUsers() {
-    const response = await fetch('https://disc-assignment-5-users-api.onrender.com/api/users', {
+    const users = await fetch('https://disc-assignment-5-users-api.onrender.com/api/users', {
       method: 'GET',
     });
-    if (!response.ok) {
+    if (!users.ok) {
       throw new Error('Failed to fetch users');
     }
-    const data = await response.json();
+    const data = await users.json();
     
-    // Ensure each user object has the required fields
-    return data.map(user => ({
-      id: user.id,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      email: user.email,
-      bio: user.bio,
-      major: user.major,
-      graduationYear: user.graduationYear,
-      profilePicture: user.profilePicture,
-      created_at: user.created_at,
-    }));
+    // ensure required fields are met 
+    return data;
   }
   
+
+// getUserbyID
+export const getUserbyID = async (userID) => {
+    const users = await fetch(`https://disc-assignment-5-users-api.onrender.com/api/users/${userID}`, {
+        method: 'GET',
+      });
+    if (!users.ok) {
+        throw new Error('Failed to fetch users')
+    }
+
+    const user = await users.json();
+
+    return user;
+
+};
