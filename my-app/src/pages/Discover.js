@@ -2,12 +2,40 @@ import React, { useState, useEffect, useMemo } from 'react';
 import '../App.css';
 import './Discover.css'
 import { getAllUsers } from './DiscoverAPI.js'
+import GenericButton from '../components/AllButtons.js'
 
 // importing icon 
 // https://react-icons.github.io/react-icons/
 import { FaRegCommentAlt, FaRegHeart } from "react-icons/fa";
 
 export default function Discover() {
+    // to create light and dark mode 
+    const [mode, setMode] = useState('light');
+
+    const switchMode = () => {
+        if (mode === 'light') {
+            setMode('dark');
+        } else if (mode === 'dark') {
+            setMode('light');
+        }
+    }
+
+    useEffect(() => {
+        console.log(mode);
+    }, [mode]);
+
+    // colors for light and dark mode 
+    const backgroundColor = mode === 'light' ? '#FFFDF0' : '#2A2B2A';
+    // textColor and buttonColor share the same colors 
+    const textColor = mode === 'light' ? '#2A2B2A' : '#FFFDF0' ;
+
+    // text on the dark mode button 
+    const buttonText = mode === 'light' ? "Dark Mode" : "Light Mode" ;
+
+    ///
+    ///
+    ///
+
     // getAllUsers 
     // useState that stores users' data 
     const [users, setUsers] = useState([]); 
@@ -26,8 +54,26 @@ export default function Discover() {
     // web page
     return (
     <div className = "discover-container-padding"
-        style={{ backgroundColor: '#FFFDF0', 
-        }}>
+        style={{ backgroundColor: backgroundColor, 
+                 color: textColor 
+                }}>
+
+
+        {/* usage of generic component */}
+        {/*                            */}
+        {/*           TO FIX           */}
+        {/*                            */}
+        <GenericButton
+            label={buttonText}
+            onClick={switchMode}
+            style={{ 
+                backgroundColor: mode === 'light' ? '#2A2B2A' : '#FFFDF0', 
+                color: mode === 'light' ? '#FFFDF0' : '#2A2B2A' 
+            }}
+            className="dark-mode-button" 
+        />
+
+
         <div className = "left-right-container">
              {/* left side with the feed */}
              <div className="social-media-col">

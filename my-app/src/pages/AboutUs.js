@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import GenericButton from '../components/AllButtons.js'
 import '../App.css';
 import './AboutUs.css'
 
@@ -19,23 +20,30 @@ export default function AboutUs() {
     console.log(mode);
   }, [mode]);
 
+  // colors for light and dark mode 
   const backgroundColor = mode === 'light' ? '#FFFDF0' : '#2A2B2A';
   // textColor and buttonColor share the same colors 
   const textColor = mode === 'light' ? '#2A2B2A' : '#FFFDF0' ;
   const accentColor = mode === 'light' ? '#FDF5D5' : '#5A5A5A' ;
 
+  // text on the dark mode button 
+  const buttonText = mode === 'light' ? "Dark Mode" : "Light Mode" ;
 
   return (
     <div className = "about-us-container-padding"
       style={{ backgroundColor: backgroundColor, 
                color: textColor}}>
 
-      <button className = "dark-mode-button"
-              style={{ backgroundColor: textColor, 
-                       color: backgroundColor}}
-              onClick={switchMode}>
-              Dark Mode
-      </button> 
+      {/* usage of generic component */}
+      <GenericButton
+            label={buttonText}
+            onClick={switchMode}
+            style={{ 
+                backgroundColor: mode === 'light' ? '#2A2B2A' : '#FFFDF0', 
+                color: mode === 'light' ? '#FFFDF0' : '#2A2B2A' 
+            }}
+            className="dark-mode-button" 
+      />
 
       {/* Top half with the About Us and image carousel */}
       <div className ="flex-container-2">
