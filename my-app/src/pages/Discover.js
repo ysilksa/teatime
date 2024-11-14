@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import '../App.css';
 import './Discover.css'
 import { getAllUsers } from './DiscoverAPI.js'
@@ -20,6 +20,8 @@ export default function Discover() {
             .catch(error => console.error('error fetching users:', error));
     }, []);
 
+    // memoize the users displayed on the page so it's faster and usable for react.memo 
+    const displayedUsers = useMemo(() => users.slice(2, 4), [users]);
 
     // web page
     return (
@@ -27,86 +29,31 @@ export default function Discover() {
         style={{ backgroundColor: '#FFFDF0', 
         }}>
         <div className = "left-right-container">
-            {/* left side with the feed  */}
-            <div className = "social-media-col">
+             {/* left side with the feed */}
+             <div className="social-media-col">
+
                 {/* top part holds the 'Discover' text and the plus button for a new post */}
-                <div className = "discover-button-container">
-                    {/* 'Discover' book label */}
+                <div className="discover-button-container">
                     <div>
                         <h1>
-                        Discover
+                            Discover
                         </h1>
                     </div>
 
                     {/* New Post Button */}
                     <div>
-                        <button className = "new-post-button">
-                            +
-                        </button>
+                        <button className="new-post-button">+</button>
                     </div>
-                
                 </div>   
-                
+
                 {/* import 2 users' names from API to display */}
-                {users.slice(2, 4).map((user, index) => (
-                    <div key={user.id} className="social-media-post-container">
-
-                        {/* username and timestamp */}
-                        <div className="username-container">
-                            {/* profile picture */}
-                            <img src={user.profilePicture} alt={`${user.firstName}'s profile`} className = "circular-icon-image" />
-
-                            {/* username and timestamp */}
-                            <h3>
-                                {`${user.firstName} ${user.lastName}`}  
-                                <br />
-                                {index === 0 ? '20 min ago' : '1 hr ago'}
-                            </h3>
-                        </div>
-                    
-                    {/* example post descriptions */}
-                    <div>
-                        <p>
-                        {index === 0
-                        ? 'Had fun on the weekend!! Went to Ume Tea with bff~'
-                        : "Go to Gather's if you stop by Chicago! I love their hojicha rose lattes."}
-                        </p>
-                    </div>
-                    
-                    {/* image carousel  */}
-                    <div className="image-carousel-container">
-                        {/* image 1 */}
-                        {index === 0 
-                        ? <img src = "https://i.imgur.com/qrM56W6.jpeg" alt="Thai Frose from Ume Tea" className = "post-image"/>
-                        : <img src = "https://i.imgur.com/NWzvnPm.jpeg" alt="Rose hojicha latte with boba from Gathers" className = "post-image"/>
-                        }
-
-                        {/* image 2 */}
-                        {index === 0 
-                        ? <img src = "https://i.imgur.com/S8cHWww.jpeg" alt="Thai Frose from Ume Tea" className = "post-image"/>
-                        : <img src = "https://i.imgur.com/QA3obdD.jpeg" alt="Two My Melody and Kuromi blind keychains" className = "post-image"/>
-                        }
-
-                    </div>
-            
-
-            {/* heart icon and comment icon */}
-            <div className = 'likes-comment-container'>
-                <div className = 'likes-comment-container-inner'>
-                    <HeartIcon />
-                    {index === 0 ? 124 : 12}
-                </div>
-
-                <div className = 'likes-comment-container-inner'>
-                    <CommentIcon />
-                    {index === 0 ? 137 : 14}
-                </div>
-            </div>
-
-        </div>
-        ))}
-                
-
+                {displayedUsers.map((user, index) => (
+                    <SocialMediaPost 
+                        key={user.id} 
+                        user={user} 
+                        index={index} 
+                    />
+                ))}
             </div>
 
             {/* right side with browsing new people or places to visit */}
@@ -124,6 +71,64 @@ export default function Discover() {
 //
 // external functions
 //
+
+
+// use react.memo for the 2 sample posts 
+const SocialMediaPost = React.memo(({user, index}) => {
+    // timestamp with useMemo
+    const timestamp = useMemo(() => (index === 0 
+                                    ? '20 min ago' 
+                                    : '1 hr ago'), [index]);
+
+
+    return (
+        <div className="social-media-post-container">
+            {/* username and timestamp */}
+            <div className="username-container">
+                {/* profile picture */}
+                <img src={user.profilePicture} alt={`${user.firstName}'s profile`} className="circular-icon-image" />
+                <h3>{`${user.firstName} ${user.lastName}`}
+                    <br />
+                    {timestamp}
+                </h3>
+            </div>
+
+            {/* example post descriptions */}
+            <div>
+                <p>{index === 0 
+                    ? 'Had fun on the weekend!! Went to Ume Tea with bff~' 
+                    : "Go to Gather's if you stop by Chicago! I love their hojicha rose lattes."}</p>
+            </div>
+             
+            {/* image carousel  */}
+            <div className="image-carousel-container">
+                {/* image 1 */}
+                {index === 0 
+                    ? <img src="https://i.imgur.com/qrM56W6.jpeg" alt="Thai Frose from Ume Tea" className="post-image"/>
+                    : <img src="https://i.imgur.com/NWzvnPm.jpeg" alt="Rose hojicha latte with boba from Gathers" className="post-image"/>
+                }
+
+                {/* image 2 */}
+                {index === 0 
+                    ? <img src="https://i.imgur.com/S8cHWww.jpeg" alt="Thai Frose from Ume Tea" className="post-image"/>
+                    : <img src="https://i.imgur.com/QA3obdD.jpeg" alt="Two My Melody and Kuromi blind keychains" className="post-image"/>
+                }
+            </div>
+            
+            {/* heart icon and comment icon */}
+            <div className="likes-comment-container">
+                <div className="likes-comment-container-inner">
+                    <HeartIcon />
+                    {index === 0 ? 124 : 12}
+                </div>
+                <div className="likes-comment-container-inner">
+                    <CommentIcon />
+                    {index === 0 ? 137 : 14}
+                </div>
+            </div>
+        </div>
+    );
+});
 
 // heart icon for the post 
 function HeartIcon({size = 20, color = '#2A2B2A'}) {
