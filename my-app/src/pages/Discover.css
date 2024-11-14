@@ -128,10 +128,51 @@ html, body {
 /* RIGHT SIDE */
 /*            */
 
+/* holds all the boba shops in one horizontal flex */
+.boba-shop-container {
+    display: flex; 
+    align-items: flex-start;
+    gap: 30px; 
+}
+
+/* holds each individual image */
+.boba-shop-image-container {
+    display: relative;
+    width: 180px; 
+    height: 300px;
+    justify-content: flex-end;
+    align-items: center;
+}
+.boba-shop-image-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px; 
+    object-fit: cover;  
+}
+
+/* text for each boba shop */
+.boba-shop-name-text {
+    position: relative;
+    width: 140px; 
+    height: 25px;
+    border-radius: 10px; 
+    top: -40px;
+    left: 20px; 
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
+    color: #2A2B2A;
+}
+
 /*       */
 /* FONTS */
 /*       */
 
 h1 {
     font-size: 30px; 
+}
+
+/* for the shop names */
+p2 {
+    font-size: 20px;
 }
