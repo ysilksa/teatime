@@ -1,8 +1,137 @@
+/*           */
+/* FULL PAGE */
+/*           */
+
+html, body {
+    height: 100%;        /* Full height of the viewport */
+    margin: 0;           /* Remove default margin */
+    padding: 0;          /* Remove default padding */
+  }
+
+/* outside container for the whole page */
 .discover-container-padding {
     padding-left: 20px; 
     padding-right: 20px;
     padding-top: 70px;
     width: 100vw;
-    height: calc(100% - 60px);
-    overflow-x: hidden;
+    height: 100%;
+    align-items: left;
+    background-color:#FFFDF0;
+}
+
+/* separates the left and right sides */
+.left-right-container {
+    display: flex; 
+    flex-direction: row;
+    align-items: flex-start; 
+    justify-items: space-around; 
+    width: 100%;
+}
+
+/*           */
+/* LEFT SIDE */
+/*           */
+
+/* separates 'discover' text and a plus button for a new post */
+.discover-button-container {
+    display: flex; 
+    align-items: center;
+    gap: 634px;
+}
+
+/* new post button */
+.new-post-button {
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    color:white;
+    background-color: #282c34;
+    font-size: 40px;
+}
+.new-post-button:hover {
+    background-color: #191b1f;
+}
+
+/* column for social media posts */
+.social-media-col {
+    display: flex; 
+    flex-direction: column;
+    align-items: flex-start;
+    justify-items: space-around; 
+    width: 100vw;
+    gap: 40px; 
+}
+
+/* left side social media posts*/
+.social-media-post-container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px; 
+    width: 800px; 
+    height: 450px; 
+    background-color: #FDF5D5;
+    border-radius: 30px;
+    justify-content: flex-start;
+    align-items: left;
+    text-align: left;
+    gap: 10px;
+}
+
+/* container for profile pic and user's name */
+.username-container {
+    display: flex; 
+    align-items: center;
+    gap: 10px; 
+}
+
+/* circular icon image */
+.circular-icon-image {
+    border-radius: 50%; 
+    width: 50px; 
+    height: 50px; 
+}
+
+/* carousel container for social media pics  */
+.image-carousel-container {
+    display: flex; 
+    flex-direction: row;
+    gap: 20px; 
+}
+
+/* image for social media post */
+.post-image {
+    width: 150px;
+    height: auto;
+    background-color:aqua;
+    border-radius: 10px;
+}
+
+/* container for the heart and the comment icons */
+.likes-comment-container {
+    display: flex; 
+    align-items: center;
+    gap: 10px;
+    padding-top: 15px; 
+}
+
+/* individual container for comments and heart so the gap isn't as wide */
+.likes-comment-container-inner {
+    display: flex; 
+    align-items: center;
+    gap: 5px; 
+}
+
+
+/*            */
+/* RIGHT SIDE */
+/*            */
+
+/*       */
+/* FONTS */
+/*       */
+
+h1 {
+    font-size: 30px; 
 }
