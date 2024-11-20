@@ -77,3 +77,26 @@
 </div>
 
 </div>
+
+//////
+
+
+  {/* left side with the feed  */}
+//   <div className = "social-media-col">
+//   {/* top part holds the 'Discover' text and the plus button for a new post */}
+//   <div className = "discover-button-container">
+//       {/* 'Discover' book label */}
+//       <div>
+//           <h1>
+//           Discover
+//           </h1>
+//       </div>
+
+//       {/* New Post Button */}
+//       <div>
+//           <button className = "new-post-button">
+//               +
+//           </button>
+//       </div>
+  
+//   </div>   
