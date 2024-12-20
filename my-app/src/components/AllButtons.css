@@ -1,0 +1,16 @@
+/* generic button */
+.generic-button {
+    width: 80px;
+    height: 40px;
+    border: none;
+    font-family: "Figtree";
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* dark Mode button positioning */
+.dark-mode-button {
+    position: relative;
+    top: -65px;
+    left: -650px;
+}

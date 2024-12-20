@@ -1,0 +1,61 @@
+/* background for 'why us' blurb */
+.rectangle-background {
+  width: 450px;
+  height: 200px;
+  background-color: #FDF5D5;
+  border-radius: 30px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* moves the about us to the left  */
+.about-us-description-container {
+  padding-left: 140px; 
+}
+
+/* fits the about us text in a container */
+.about-us-description-text-container {
+  width: 600px; 
+  height: 200px; 
+}
+
+/* some extra padding for the overall page */
+.about-us-container-padding {
+  padding-left: 0px; 
+  padding-right: 20px;
+  padding-top: 80px;
+  width: 100vw;
+  height: calc(100% - 60px);
+  overflow-x: hidden;
+}
+
+/* horizontal line that divides upper and lower halves */
+.custom-line {
+  border: 0;
+  height: 2px;
+  background-color: #FDF5D5;
+  margin: 20px 0;
+}
+
+
+/* top half's carousel layout */
+.image-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  margin: 30px;
+  padding-left: 240px; /* moves carousel to the right */
+}
+
+/* standardize all images in the top half's carousel */
+.image {
+  width: 150px;
+  height: auto;
+  box-shadow: 10px 20px 30px #E6D6B2;
+  border-radius: 10px;
+}
+/* moves 2nd image down in image carousel */
+.lower {
+  margin-top: 20px; 
+}

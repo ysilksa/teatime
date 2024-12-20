@@ -1,0 +1,146 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* below: all css style from hw 3*/
+
+
+
+/* paragraph text size */
+p {
+  font-size: 20px;
+}
+
+/* all flex containers' display and background-color */
+.flex-container, .flex-container-2, .flex-container-vertical-center, .flex-container-horizontal-wide-gap {
+  display: flex;
+  width: 100vw;
+  height: 100%;
+  /* background-color:#FFFDF0; */
+}
+
+/* vertical flex container */
+.flex-container {
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* vertical flex container that is centered */
+.flex-container-vertical-center {
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* horizontal flex container */
+.flex-container-2 {
+  gap: 60px;
+}
+
+/* horizontal flex container with wider gap for the bottom part */
+.flex-container-horizontal-wide-gap {
+  display: flex;
+  gap: 0px;
+}
+
+
+/* rectangle for footer*/
+.footer {
+  width: 100vw;
+  height: 30px;
+  background-color: #FDF5D5;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-size: 10px;
+}
+.footer p {
+  font-size: 15px;
+  margin: 0;
+}
+
+/* social media button */
+.social-media-button {
+  /* background-color: #2A2B2A; */
+  border: none;
+  /* color: #FFFFFF; */
+  padding: 15px 32px;
+  font-family: "Figtree";
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+/* dark mode button styling */
+.dark-mode-button {
+  position: relative; 
+  top: -65px; 
+  left: -650px; 
+  width: 80px; 
+  height: 40px; 
+  border: none; 
+  font-family: "Figtree";
+  cursor: pointer; 
+  border-radius: 5px;
+}
+
+/*font family FigTree for the website*/
+@import url(https://fonts.googleapis.com/css?family=Figtree);
+h2 {
+  font-family: "Figtree";
+}
+h3 {
+  font-family: "Figtree";
+}
+div {
+  font-family: "Figtree";
+}
+body {
+  font-family: "Figtree";
+}
+p {
+  font-family: "Figtree";
+}
+
