@@ -1,10 +1,10 @@
 // import { useState, useEffect } from 'react';
 import './App.css';
 import NavBar from "./NavBar"
-import Profile from './pages/Profile';
+import Profile from './pages/ProfilePage/Profile';
 import Discover from './pages/DiscoverPage/Discover';
-import AboutUs from './pages/AboutUs';
-import Home from './pages/Home';
+import AboutUs from './pages/AboutUsPage/AboutUs';
+import Home from './pages/HomePage/Home';
 import "./NavBarStyles.css"
 import { Route, Routes } from "react-router-dom";
 

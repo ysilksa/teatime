@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import GenericButton from '../components/AllButtons.js'
-import '../App.css';
+import GenericButton from '../../components/AllButtons.js'
+import '../../App.css';
 import './AboutUs.css'
 
 export default function AboutUs() {
