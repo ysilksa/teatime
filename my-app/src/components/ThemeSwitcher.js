@@ -1,5 +1,5 @@
 import React from 'react'; 
-import GenericButton from '../../components/AllButtons';
+import GenericButton from './AllButtons';
 
 
 export default function ThemeSwitcher({ mode, switchMode }) {

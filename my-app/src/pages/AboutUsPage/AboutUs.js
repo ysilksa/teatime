@@ -4,7 +4,7 @@ import '../../App.css';
 import './AboutUs.css';
 
 // functions for app elements 
-import ThemeSwitcher from './ThemeSwitcher.js';
+import ThemeSwitcher from '../../components/ThemeSwitcher.js';
 import ImageCarousel from './Carousel.js';
 import Description from './Description.js';
 import WhyUs from './WhyUs.js';
