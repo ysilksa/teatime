@@ -4,8 +4,6 @@ import GenericButton from './AllButtons';
 
 export default function ThemeSwitcher({ mode, switchMode }) {
 
-    
-
     const buttonText = mode === 'light' ? 'Dark Mode' : 'Light Mode';
 
     return (

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import '../../App.css';
 import './AboutUs.css';
 
-// functions for app elements 
+// functions for page elements 
 import ThemeSwitcher from '../../components/ThemeSwitcher.js';
 import ImageCarousel from './Carousel.js';
 import Description from './Description.js';
